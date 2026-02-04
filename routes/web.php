@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\YapyapController;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [YapyapController::class, 'index']);
+

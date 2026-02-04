@@ -1,34 +1,19 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="lofi">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yapyap - Home</title>
-    <link rel="preconnect" href="<https://fonts.bunny.net>">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
 <x-layout>
     <x-slot:title>
         Welcome
     </x-slot:title>
 
     <div class="max-w-2xl mx-auto">
-        <div class="card bg-base-100 shadow mt-8">
-            <div class="card-body">
-                <div>
-                    <h1 class="text-3xl font-bold">Welcome to Yapyap!</h1>
-                    <p class="mt-4 text-base-content/60">This is your brand new Laravel application. Time to make it
-                        sing (or yapyap)!</p>
+        @foreach ($yapyaps as $yapyap)
+            <div class="card bg-base-100 shadow mt-8">
+                <div class="card-body">
+                    <div>
+                        <div class="font-semibold">{{ $yapyap['author'] }}</div>
+                        <div class="mt-1">{{ $yapyap['message'] }}</div>
+                        <div class="text-sm text-gray-500 mt-2">{{ $yapyap['time'] }}</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
 </x-layout>
-</body>
-
-</html>
